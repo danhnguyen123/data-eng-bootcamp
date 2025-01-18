@@ -2,8 +2,8 @@ import requests
 from requests.exceptions import HTTPError, RequestException
 import json
 
-APP_ID = "cli_a65a305139789010"
-APP_SECRET = "ykQTp88bFYXx1BIiZXa4grlDyPN4Zydc"
+APP_ID = ""
+APP_SECRET = ""
 BASE_LARK_URL = "https://open.larksuite.com/open-apis"
 
 class LarkHelper:
