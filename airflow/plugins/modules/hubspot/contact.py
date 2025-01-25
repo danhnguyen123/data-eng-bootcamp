@@ -19,6 +19,8 @@ class HubspotContactETL:
         # First call
         page_index = 1
 
+        print(f"Getting data in page {page_index}")
+
         results, after = self.hubspot.get_list_contacts(properties=properties)
 
         file_name = f"contacts.json"
