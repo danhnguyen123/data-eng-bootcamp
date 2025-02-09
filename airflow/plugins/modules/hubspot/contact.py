@@ -101,11 +101,12 @@ class HubspotContactETL:
                                        destination_dataset=self.dataset_warehouse, destination_table=self.table_id)
 
     def load(self):
+        
         identifier_cols = ['id']
 
         table_cols = self.bq.get_columns(dataset_id=self.dataset_staging, table_id=self.table_id)
 
-        on_clause = " and ".join([f"target.{col}=source.{col}" for col in table_cols])
+        on_clause = " and ".join([f"target.{col}=source.{col}" for col in identifier_cols])
 
         update_set_clause = ", ".join([f"target.{col} = source.{col}" for col in table_cols if col not in identifier_cols])
         insert_values_clause = ", ".join([f"source.{col}" for col in table_cols])
